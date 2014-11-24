@@ -140,3 +140,11 @@ body {
 #frame {
     text-align: center;
 }
+
+
+
+.reddit-link {
+    font-size: 5pt; 
+    text-decoration: none; 
+    color: black;
+}
