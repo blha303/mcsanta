@@ -1,11 +1,10 @@
 <?php
-//$data = json_decode(file_get_contents("http://xpaw.ru/mcstatus/status.json"), true);
-//if ($data["report"]["skins"]["status"] == "down") {
-//    $isup = "<p id='skinsrvrstatus'><a href='http://xpaw.ru/mcstatus'><span style='color: red; font-weight: bold'>Skins server is down, site is in cache-only mode</span></a></p>";
-//} else {
-//    $isup = "";
-//}
-$isup = "";
+$data = json_decode(file_get_contents("http://xpaw.ru/mcstatus/status.json"), true);
+if ($data["report"]["skins"]["status"] == "down") {
+    $isup = "<a href='http://xpaw.ru/mcstatus'><span style='color: red; font-weight: bold'>Skins server is down, site is in cache-only mode</span></a>";
+} else {
+    $isup = "<sup><a href='http://xpaw.ru/mcstatus'><span style='color: green'>Skins server is ".$data["report"]["skins"]["status"]."</span></a></sup>";
+}
 ?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -19,12 +18,7 @@ $isup = "";
     <div id="container">
  <h1 style="padding:5px;margin:5px">Minecraft Hatomator<sup><sup><a target="_blank" style="font-size: 5pt; text-decoration: none; color: black" href="http://www.reddit.com/r/Minecraft/comments/1rwuwo/i_made_a_site_to_easily_add_a_santa_hat_to_your/cds793d">[x]</a></sup></sup></h1>
       <span id="splash"><noscript>I'm dreaming of a Javascriptless Christmas...</noscript></span>
-<?php $ads = array(array("http://snw.io", "snw.png", "ShockNetwork"),
-                   array("http://poweredbyawesome.net", "poweredbyawesome.png", "PoweredByAwesome"),
-                   array("http://reddit.com/r/minecraftmario", "mariocraft.png", "MarioCraft"));
-      $curad = $ads[array_rand($ads)]; ?>
-<div class="ad" style="padding-top:5px; margin-left:auto; margin-right:auto; width:600px;"><center><a target="_blank" href="<?php echo $curad[0]; ?>" style="font-size: 8pt; text-decoration: none; color: black;"><img src="<?php echo $curad[1]; ?>" alt="Sponsor: <?php echo $curad[2]; ?>"><br>Supported by <?php echo $curad[2]; ?></a></a></div>
-      <?php echo $isup; ?>
+      <p id="skinsrvrstatus"><?php echo $isup; ?></p>
 <?php
 $siteloc = "http://blha303.com.au/mcsanta";
 
@@ -62,13 +56,7 @@ imageAlphaBlending($userskin, true);
 imageSaveAlpha($userskin, true);
 imagecopy($userskin, $santatemplate, 0, 0, 0, 0, imagesx($userskin), imagesy($userskin));
 imagepng($userskin, realpath(dirname(__FILE__)) ."/tmp/$user-santa.png");
-}
-if (isset($_GET['forward'])) { ?>
-<script>
-window.location.href = "https://minecraft.net/profile/skin/remote?url=<?php echo $siteloc."/tmp/".$user; ?>-santa.png";
-</script> <?php
-}
- ?>
+} ?>
 <p id="applyp"><a id="applylink" href="https://minecraft.net/profile/skin/remote?url=<?php echo $siteloc."/tmp/".$user; ?>-santa.png">Click here to apply your santa-hatted skin!</a><br>(Make sure to <a href="https://s3.amazonaws.com/MinecraftSkins/<?php echo $user; ?>.png" id="backuplink">click here first</a> to download your current skin, or you won't be able to get it back.)</p>
 <div id="frame"><iframe src="skin/?user=<?php echo $user; ?>" title="skin" width="200px" height="200px" id="preview"></iframe>
 <br><small>Skin preview by <a href="http://forums.bukkit.org/threads/web-html5-skin-viewer.4428/">earthiverse</a></small></div>
@@ -101,6 +89,11 @@ splashlist = ["It's Christmas, yo.", "Hohoho!", "Getcha Santa hats here!",
 "Now with background image!"];
 document.getElementById('splash').innerHTML = splashlist[Math.floor(Math.random() * splashlist.length)];
 </script>
+<?php $ads = array(array("http://snw.io", "snw.png", "ShockNetwork"),
+                   array("http://poweredbyawesome.net", "poweredbyawesome.png", "PoweredByAwesome"),
+                   array("http://reddit.com/r/minecraftmario", "mariocraft.png", "MarioCraft"));
+      $curad = $ads[array_rand($ads)]; ?>
+<div class="ad" style="padding-top:5px; margin-left:auto; margin-right:auto; width:600px;"><center><a target="_blank" href="<?php echo $curad[0]; ?>" style="font-size: 8pt; text-decoration: none; color: black;"><img src="<?php echo $curad[1]; ?>" alt="Sponsor: <?php echo $curad[2]; ?>"><br>Supported by <?php echo $curad[2]; ?></a></a></div>
 </div>
 </body>
 </html>

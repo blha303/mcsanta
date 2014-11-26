@@ -117,6 +117,7 @@ body {
     background-image: url("http://blha303.com.au/mcsanta/bg.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment:fixed;
 }
 #container {
     background-color: #FFFFFF;
@@ -141,12 +142,4 @@ body {
 
 #frame {
     text-align: center;
-}
-
-
-
-.reddit-link {
-    font-size: 5pt; 
-    text-decoration: none; 
-    color: black;
 }
