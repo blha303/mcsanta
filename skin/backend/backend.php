@@ -1,4 +1,11 @@
 <?php
+
+//not included in git commit - make sure dir exists
+if(!is_dir('images/skins')) {
+    mkdir('images/skins',0777);
+}
+
+
 error_reporting(E_ALL);
 
 //List of Variables used on the site
@@ -35,13 +42,12 @@ function minecraft_skin_3d_part($original, $user, $xpos, $ypos, $width, $height,
 
 function minecraft_skin_download($user) {
  if(!file_exists('images/skins/'.$user.'/base.png')) {
-  // Read image from file-system instaid of internet
   if(@getimagesize('../tmp/'.$user.'-santa.png')) {
    //Make a new directory
-   If(!is_dir('images/skins/'.$user)) {
+   if(!is_dir('images/skins/'.$user)) {
     mkdir('images/skins/'.$user,0777);
    }
-   // Read image from file-system and put it in /images/skins/$user
+   //Download the skin from Minecraft.net and put it in /images/skins/
    $url = '../tmp/'.$user.'-santa.png';
    $img = 'images/skins/'.$user.'/base.png';
    file_put_contents($img, file_get_contents($url));
@@ -124,5 +130,4 @@ function minecraft_skin_delete($user) {
 
 // Functions not created by me
 include_once('rmdir.php'); // Script found on php.net that removes all the files in a folder, then the folder itself
-                           // http://php.net/manual/en/function.rmdir.php#98622
 ?>
