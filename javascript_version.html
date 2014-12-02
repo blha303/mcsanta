@@ -1,0 +1,147 @@
+<html>
+<head>
+	<style type="text/css">
+		#main {
+			width: 650px;
+		margin: 200px auto 0 auto;
+		}
+		#form {
+
+		text-align: center;
+
+		}
+		#status {
+			background: #DADADA;
+		padding: 3px 5px;
+		}
+
+		#preview, #result {
+			text-align: center;
+		padding: 20px;
+		background: #EFEFEF;
+		}
+		#preview img, #result canvas {
+			background: #FFF;
+		}
+	</style>
+	<title>Apply Minecraft hat to your character</title>
+
+</head>
+<body>
+	<noscript>Sorry, you need javascript enabled to use this page</noscript>
+	<section id="main">
+		<form id="form" onsubmit="return false;">
+			<label for="user">Username:</label>
+			<input id="user" type="text"></input>
+			<button type="submit" onsubmit="return false;">SANTAFY!</button>
+		</form>
+		<section id="status"></section>
+		<section id="preview"><img id="skin" src=""/></section>
+		<section id="result"><canvas id="render" width="64" height="32"></canvas></section>
+
+	</section>
+
+
+
+
+
+
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+
+document.getElementById("render").style.display = "none";
+var user = "";
+
+
+function canvas_support() {
+  return !!document.createElement('canvas').getContext;
+}
+
+$("#form").submit(function(){
+
+	if (! canvas_support) {
+		document.getElementById("status") = 'Your browser does not support canvas elements, please <a href="">upgrade to a more modern browser</a>.';
+	}
+	else {
+		clear_stuff();
+
+		user = document.getElementById("user").value;
+		document.getElementById("status").innerHTML = "Getting skin of "+user;
+		get_skin(user);
+	}
+	return false;
+});
+
+
+
+function clear_stuff() {
+	user = null;
+	document.getElementById("preview").style.display = "inherit";
+	document.getElementById("render").style.display = "none";
+	document.getElementById("preview").innerHTML = '<img id="skin" src=""/>';
+	var c=document.getElementById("render");
+	var ctx=c.getContext("2d");
+	ctx.clearRect ( 0 , 0 , c.width, c.height );
+}
+
+
+
+function get_skin (user) {
+
+	setTimeout(function(){
+	    // N00b at javascript okay? i didnt know how to do this without jQuery
+	        $('#skin').attr('src','http://skins.minecraft.net/MinecraftSkins/'+user+'.png').bind({
+	            load: function(){
+	                	setTimeout(function(){
+	                		document.getElementById("status").innerHTML = user+" skin retrieved....";
+	                		document.getElementById("preview").style.display = "none";
+	                		document.getElementById("render").style.display = "inline";
+	                		render(user);}
+	                	,2000);
+	            },
+	            error: function(){
+	                alert('An error occured, are you sure '+user+' is a premium account?');
+	                document.getElementById("status").innerHTML = "ERROR retrieving skin";
+	            }
+	        });
+	},1000);
+}
+
+function render(user) {
+
+		document.getElementById("status").innerHTML = "Rendering skin with hat";
+		var c=document.getElementById("render");
+		var ctx=c.getContext("2d");
+		var imageObj1 = new Image();
+		var imageObj2 = new Image();
+
+		imageObj1 = document.getElementById('skin');
+		imageObj2.src = "SantaHatTemplate.png";
+
+		ctx.drawImage(imageObj1, 0, 0, 64, 32);
+		ctx.drawImage(imageObj2, 0, 0, 64, 32);
+		document.getElementById("status").innerHTML = 'Done. <br/> Rightclick '+
+		'the image below and click save. <a target="_blank" '+
+		'href="https://minecraft.net/profile">Click here</a> to change your skin. '+
+		' Upload the image you downloaded here, to there';
+		/*
+
+		CANT DO THIS BECAUSE OF CROSS ORIGIN POLICY :/
+
+		var img = c.toDataURL("image/png");
+		document.getElementById('result').innerHTML = '<img id="render" src="' + img + '" width="64" height="32"/>';
+
+		document.getElementById("status").innerHTML = "Done!";
+
+		*/
+
+
+}
+
+
+
+</script>
+</body>
+</html>
