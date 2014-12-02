@@ -1,152 +1,180 @@
 @import "http://fonts.googleapis.com/css?family=Ledger|Open+Sans";
-body {
-    font-family: 'Open Sans',sans-serif;
-}
-h2, h1, h3, h4 {
-    font-family: 'Ledger',serif;
-}
-.button {
-    background-clip: padding-box;
-    border: 1px solid;
-    border-radius: 2px 2px 2px 2px;
-    box-shadow: 0 1px rgba(255, 255, 255, 0.1) inset, 0 0 0 1px rgba(255, 255, 255, 0.08) inset, 0 1px 2px rgba(0, 0, 0, 0.25);
-    color: #FFFFFF;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 13px;
-    height: 36px;
-    line-height: 35px;
-    padding: 0 20px;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    text-shadow: 0 -1px rgba(0, 0, 0, 0.4);
-    vertical-align: top;
-}
-.button:before {
-    background-image: radial-gradient(farthest-corner at center top , rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
-    bottom: 0;
-    content: "";
-    left: 0;
-    pointer-events: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-.button:hover:before {
-    background-image: radial-gradient(farthest-corner, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.03));
-}
-.button:active {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) inset;
-}
-.button:active:before {
-    content: none;
-}
-.button-green {
-    background: linear-gradient(to bottom, #69C03B, #5CA934 66%, #54992F) repeat scroll 0 0 #5CA934;
-    border-color: #478228 #478228 #3C6F22;
-}
-.button-green:active {
-    background: none repeat scroll 0 0 #5CA934;
-    border-color: #3C6F22 #478228 #478228;
-}
-.button-red {
-    background: linear-gradient(to bottom, #DA5C48, #D5452F 66%, #C73D28) repeat scroll 0 0 #D5452F;
-    border-color: #AE3623 #AE3623 #992F1F;
-}
-.button-red:active {
-    background: none repeat scroll 0 0 #D5452F;
-    border-color: #992F1F #AE3623 #AE3623;
-}
-.button-blue {
-    background: linear-gradient(to bottom, #25A5F0, #1097E6 66%, #0F8AD3) repeat scroll 0 0 #1097E6;
-    border-color: #0D78B6 #0D78B6 #0B689E;
-}
-.button-blue:active {
-    background: none repeat scroll 0 0 #1097E6;
-    border-color: #0B689E #0D78B6 #0D78B6;
-}
-.button-orange {
-    background: linear-gradient(to bottom, #F69F47, #F4902A 66%, #F38617) repeat scroll 0 0 #F4902A;
-    border-color: #DF770C #DF770C #C76A0A;
-}
-.button-orange:active {
-    background: none repeat scroll 0 0 #F4902A;
-    border-color: #C76A0A #DF770C #DF770C;
-}
-.button-pink {
-    background: linear-gradient(to bottom, #EB5190, #E8367F 66%, #E62473) repeat scroll 0 0 #E8367F;
-    border-color: #D31865 #D31865 #BC165A;
-}
-.button-pink:active {
-    background: none repeat scroll 0 0 #E8367F;
-    border-color: #BC165A #D31865 #D31865;
-}
-.button-gray {
-    background: linear-gradient(to bottom, #55585F, #47494F 66%, #3D3F44) repeat scroll 0 0 #47494F;
-    border-color: #2F3034 #2F3034 #232427;
-}
-.button-gray:active {
-    background: none repeat scroll 0 0 #47494F;
-    border-color: #232427 #2F3034 #2F3034;
-}
-.button-darkblue {
-    background: linear-gradient(to bottom, #4369B6, #3B5CA0 66%, #365391) repeat scroll 0 0 #3B5CA0;
-    border-color: #2D477B #2D477B #263C68;
-}
-.button-darkblue:active {
-    background: none repeat scroll 0 0 #3B5CA0;
-    border-color: #263C68 #2D477B #2D477B;
-}
-.button-purple {
-    background: linear-gradient(to bottom, #A87DD3, #9966CB 66%, #8F57C6) repeat scroll 0 0 #9966CB;
-    border-color: #8040BE #8040BE #733AAB;
-}
-.button-purple:active {
-    background: none repeat scroll 0 0 #9966CB;
-    border-color: #733AAB #8040BE #8040BE;
-}
-#urlfield {
-    font-family: 'Open Sans';
-    font-size: 16px;
-    height: 30px;
-    text-align: center;
-    width: 460px;
+/* @font-face kit by Fonts2u (http://www.fonts2u.com) */
+@font-face {
+  font-family: "Minecraft Regular";
+  src: url("/mcsanta/mc_regular_font/minecraft_font.eot?") format("eot"), url("/mcsanta/mc_regular_font/minecraft_font.woff") format("woff"), url("/mcsanta/mc_regular_font/minecraft_font.ttf") format("truetype"), url("/mcsanta/mc_regular_font/minecraft_font.svg#Minecraft") format("svg");
+  font-weight: normal;
+  font-style: normal;
 }
 body {
-    background-image: url("http://blha303.com.au/mcsanta/bg.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+  font-family: 'Open Sans', sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Ledger', serif;
+  text-align: center;
+  font-size: 200%;
+  margin: 10px;
+}
+body {
+  background-image: url("/mcsanta/img/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.fork-me {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+}
+.mc_font {
+  font-family: 'Minecraft Regular';
+}
+#splash {
+  background: #D4D4D4;
+  border-radius: 4px;
+  color: #101010;
+  padding: 4px 7px;
+  text-align: center;
+}
+a {
+  color: #4183D7;
 }
 #container {
-    background-color: #FFFFFF;
-    border-radius: 10px 10px 10px 10px;
-    box-shadow: 1px 1px 15px rgba(50, 50, 50, 0.75);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 40px;
-    padding: 3px 10px 10px;
-    width: 600px;
+  background-color: #FFFFFF;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 1px 1px 15px rgba(50, 50, 50, 0.75);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  padding: 3px 10px 10px;
+  width: 600px;
 }
-
-#applyp {
-    font-style: italic;
-    text-align: center;
+#ad {
+  padding-top: 5px;
+  margin: 0 auto;
+  width: 600px;
+  text-align: center;
+  display: block;
 }
-
-#applylink {
-    font-style: normal!important;
-    font-weight: 700;
+#ad a {
+  font-size: 8pt;
+  text-decoration: none;
+  color: black;
 }
-
+.userinput {
+  display: block;
+  width: 100%;
+}
+form {
+  display: block;
+  text-align: center;
+  width: 450px;
+  margin: 20px 75px 30px;
+}
+form lable,
+form input {
+  display: block;
+  margin: 5px 0;
+}
+form lable {
+  font-size: 120%;
+}
+form input#user {
+  width: 100%;
+  position: relative;
+  display: block;
+  font-size: 110%;
+  padding: 7px 10px;
+  border: 2px solid #ADADAD;
+  background: #555;
+  color: #fff;
+  font-family: 'Minecraft Regular';
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+form input#user:focus {
+  background: #222222;
+}
+form input#submit {
+  width: 100%;
+  font-size: 110%;
+  padding: 7px 20px;
+  border: 2px solid #DEDEDE;
+  background: #949494;
+  color: #fff;
+  font-family: 'Minecraft Regular';
+  cursor: pointer;
+}
+form input#submit:hover {
+  background: #7E88BF;
+  color: #FFFFA0;
+}
+.server-status .status-green {
+  padding: 2px 3px;
+  border-radius: 3px;
+  color: white;
+  background: green;
+}
+.server-status .status-orange {
+  padding: 2px 3px;
+  border-radius: 3px;
+  color: white;
+  background: orange;
+}
+.server-status .status-red {
+  padding: 2px 3px;
+  border-radius: 3px;
+  color: white;
+  background: #DB0101;
+}
+iframe#twitter,
+a#twitter {
+  float: right;
+}
+#urlfield {
+  font-family: 'Open Sans';
+  font-size: 16px;
+  height: 30px;
+  text-align: center;
+  width: 460px;
+}
+.backup {
+  font-style: italic;
+  text-align: center;
+}
+.changeskin {
+  font-weight: 700;
+  font-size: 110%;
+  text-align: center;
+  display: block;
+}
+#disclaimer {
+  text-align: center;
+}
 #frame {
-    text-align: center;
+  text-align: center;
+}
+#backtohomepage a {
+  background: #4183D7;
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 7px;
+  text-decoration: none;
+}
+#backtohomepage a:hover {
+  background: #286abd;
 }
 
-
-
-.reddit-link {
-    font-size: 5pt; 
-    text-decoration: none; 
-    color: black;
+#error {
+	color: white;
+	font-weight: bold;
+	background: #DB0101;
+	padding: 7px;
+	border-radius: 5px;
 }
