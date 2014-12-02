@@ -1,2 +1,3 @@
-tmp/
-skin/images/skins/
+tmp/**
+skin/images/skins/**
+Thumbs.db
